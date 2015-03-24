@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  FACILITY_OPTIONS = {'1' => :parking, '2' => :private_room, '3' => :card_ok}
+  FACILITY_OPTIONS = {'1' => '駐車場あり', '2' => '個室あり', '3' => 'クレジットカード可'}
   serialize :facilities, Array
 
   before_save :reject_empty_facility_options!
