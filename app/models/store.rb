@@ -4,6 +4,7 @@ class Store < ActiveRecord::Base
 
   before_save :remove_blank_facility_option
   def remove_blank_facility_option
+    # 空文字のcodeを除去する
     self.facilities = self.facilities.select(&:present?)
   end
 
