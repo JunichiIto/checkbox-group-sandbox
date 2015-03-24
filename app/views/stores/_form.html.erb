@@ -15,10 +15,16 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :facilities %><br>
-    <%= f.text_area :facilities %>
-  </div>
+  <%= hidden_field_tag 'store[facilities][]' %>
+  <% Store::FACILITY_OPTIONS.each do |code, key| %>
+    <% options = { multiple: true, checked: @store.facilities.include?(code) } %>
+    <% checked_value = code %>
+    <% unchecked_value = nil %>
+    <label>
+      <%= f.check_box :facilities, options, checked_value, unchecked_value %>
+      <%= key %>
+    </label>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
