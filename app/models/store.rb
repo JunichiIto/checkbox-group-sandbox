@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  FACILITY_OPTIONS = { '1' => '駐車場あり', '2' => '個室あり', '3' => 'クレジットカード可' }
+  FACILITY_OPTIONS = { 'parking' => '駐車場あり', 'private_room' => '個室あり', 'card_ok' => 'クレジットカード可' }
   serialize :facilities, Array
 
   def selected_facility_options_text
