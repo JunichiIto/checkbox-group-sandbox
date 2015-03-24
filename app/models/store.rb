@@ -13,6 +13,6 @@ class Store < ActiveRecord::Base
   end
 
   def selected_facility_options_text
-    FACILITY_OPTIONS.slice(*self.facilities).values.join(', ')
+    selected_facility_options.join(', ')
   end
 end
