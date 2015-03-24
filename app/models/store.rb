@@ -6,4 +6,12 @@ class Store < ActiveRecord::Base
   def remove_blank_facility_option
     self.facilities = self.facilities.select(&:present?)
   end
+
+  def selected_facility_options
+    FACILITY_OPTIONS.slice(*self.facilities).values
+  end
+
+  def selected_facility_options_text
+    FACILITY_OPTIONS.slice(*self.facilities).values.join(', ')
+  end
 end
