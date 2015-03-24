@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <% # hiddenタグがないとチェックボックスが未選択の場合にデータベースが全く変更されない %>
-  <%= hidden_field_tag 'store[facilities][]' %>
+  <%= f.hidden_field :facilities, multiple: true, value: nil %>
   <% Store::FACILITY_OPTIONS.each do |code, key| %>
     <% options = { multiple: true, checked: @store.facilities.include?(code) } %>
     <% checked_value = code %>
