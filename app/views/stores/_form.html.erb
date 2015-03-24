@@ -17,13 +17,12 @@
   </div>
   <% # hiddenタグがないとチェックボックスが未選択の場合にデータベースが全く変更されない %>
   <%= f.hidden_field :facilities, multiple: true, value: nil %>
-  <% Store::FACILITY_OPTIONS.each do |code, key| %>
+  <% Store::FACILITY_OPTIONS.each do |code, text| %>
     <% options = { multiple: true, checked: @store.facilities.include?(code) } %>
-    <% checked_value = code %>
-    <% unchecked_value = nil %>
+    <% checked_value, unchecked_value = code, nil %>
     <label>
       <%= f.check_box :facilities, options, checked_value, unchecked_value %>
-      <%= key %>
+      <%= text %>
     </label>
   <% end %>
   <div class="actions">
